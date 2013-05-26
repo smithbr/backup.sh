@@ -16,7 +16,7 @@ ARCHIVE_FILE=backup-$TIMESTAMP.tar.gz
 ARCHIVE_HOME=$ROOT/archive
 ARCHIVE=$ARCHIVE_HOME/$ARCHIVE_FILE
 # About file
-ABOUT_FILE=.about
+ABOUT_FILE=about.txt
 ABOUT=$TEMP/$ABOUT_FILE
 # Number of old archives to keep
 MAX_ARCHIVES=2
@@ -36,7 +36,7 @@ echo "...Done."
 
 
 echo "Cleaning up oldest backups..."
-mkdir $ARCHIVE_HOME || echo "ARCHIVE directory exists."
+mkdir $ARCHIVE_HOME || echo "$ARCHIVE directory exists."
 cd $ARCHIVE_HOME
 ls -tr | grep ".tar.gz" | head -n -$MAX_ARCHIVES | xargs rm -rf
 cd ..
