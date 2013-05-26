@@ -3,6 +3,8 @@
 ## Description: Backup folders
 #
 ## Author: Brandon Smith
+
+
 set -x
 
 
@@ -14,7 +16,7 @@ ARCHIVE_FILE=backup-$TIMESTAMP.tar.gz
 ARCHIVE_HOME=$ROOT/archive
 ARCHIVE=$ARCHIVE_HOME/$ARCHIVE_FILE
 # About file
-ABOUT_FILE=about.txt
+ABOUT_FILE=.about
 ABOUT=$TEMP/$ABOUT_FILE
 # Number of old archives to keep
 MAX_ARCHIVES=2
@@ -26,18 +28,11 @@ SOURCES=$ROOT/sources.txt
 EXCLUDE=$ROOT/exclude.txt
 
 
-echo ""
-
-
 echo "Initializing..."
 mkdir $TEMP || echo "TEMP directory exists."
 uname -a > $ABOUT && cat /etc/issue >> $ABOUT
 mv $ABOUT $ROOT/$ABOUT_FILE
-touch log.txt
 echo "...Done."
-
-
-echo ""
 
 
 echo "Cleaning up oldest backups..."
@@ -46,9 +41,6 @@ cd $ARCHIVE_HOME
 ls -tr | grep ".tar.gz" | head -n -$MAX_ARCHIVES | xargs rm -rf
 cd ..
 echo "...Done."
-
-
-echo ""
 
 
 echo "Archiving previous backup..."
@@ -61,9 +53,6 @@ fi
 echo "...Done."
 
 
-echo ""
-
-
 echo "Creating new backup..."
 tar cvpzf $DESTINATION -P --files-from=$SOURCES --exclude-from=$EXCLUDE
 echo "...Done"
@@ -72,9 +61,6 @@ echo "...Done"
 echo "Cleaning up..."
 rm -rf $ROOT/$ABOUT_FILE
 echo "...Done"
-
-
-echo ""
 
 
 echo "Finished."
@@ -87,7 +73,3 @@ if [ -f $ARCHIVE ]
   else
   	echo "No previous backups exist."
 fi
-
-
-echo ""
-
