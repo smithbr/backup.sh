@@ -1,0 +1,4 @@
+# Run 'crontab -e' and add these lines:
+
+# Back up every 30 minutes
+30 * * * * sh ~/Dropbox/Backups/t430s-kubuntu/backup.sh
