@@ -1,0 +1,8 @@
+.adobe
+.cache
+.config/chromium
+.dropbox*
+Dropbox
+.java
+.local/share/Trash
+.thumbnails
