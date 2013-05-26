@@ -13,63 +13,44 @@ ARCHIVE_DIR=$ROOT/archive
 ARCHIVE=$ARCHIVE_DIR/$ARCHIVE_FILE
 # Number of old archives to keep
 MAX_ARCHIVES=2
-# Destination directory
 DESTINATION=$ROOT/backup.tar.gz
-DESTINATION_TEMP=$ROOT/backup_tmp.tar.gz
 # Backup folders
 SOURCES_FILE=$ROOT/sources.txt
 # Lists files and folders to exclude from sources
 EXCLUDE_FILE=$ROOT/exclude.txt
 
 
-# Remove leftover temporary files
-echo "Cleaning..."
-if [ -f $DESTINATION_TEMP ]
-  then
-    echo "rm $DESTINATION_TEMP"
-    rm $DESTINATION_TEMP
-fi
+echo ""
+
+echo "Initializing..."
+mkdir $ARCHIVE_DIR || echo "Archive directory exists."
 echo "...Done."
 
 echo ""
-# Archive the last backup
-echo "Archiving..."
+
+echo "Cleaning up oldest backups..."
+cd $ARCHIVE_DIR
+ls -tr | grep ".tar.gz" | head -n -$MAX_ARCHIVES | xargs rm -rf
+cd ..
+echo "...Done."
+
+echo ""
+
+echo "Archiving previous backup..."
 if [ -f $DESTINATION ]
   then
-    echo "mv $DESTINATION $ARCHIVE"
     mv $DESTINATION $ARCHIVE
 fi
 echo "...Done."
 
 echo ""
-# Back up the source folders to a temporary archive
-echo "Starting..."
-echo "tar cvpzf $DESTINATION_TEMP -P --files-from=$SOURCES_FILE --exclude-from=$EXCLUDE_FILE"
-tar cvpzf $DESTINATION_TEMP -P --files-from=$SOURCES_FILE --exclude-from=$EXCLUDE_FILE
+# Back up source folders to temporary archive
+echo "Creating new backup..."
+tar cvpzf $DESTINATION -P --files-from=$SOURCES_FILE --exclude-from=$EXCLUDE_FILE
 echo "...Done"
-
-echo ""
-# Create the backup archive
-echo "Creating..."
-echo "cp $DESTINATION_TEMP $DESTINATION"
-cp $DESTINATION_TEMP $DESTINATION
-echo "rm $DESTINATION_TEMP"
-rm $DESTINATION_TEMP
-echo "...Done"
-
-echo ""
-# Delete older archives
-echo "Cleaning up..."
-echo "cd $ARCHIVE_DIR"
-cd $ARCHIVE_DIR
-echo "ls -tr | head -n -$MAX_ARCHIVES | xargs rm -rf"
-ls -tr | head -n -$MAX_ARCHIVES | xargs rm -rf
-echo "cd "$ROOT
-cd $ROOT
-echo "...Done."
 
 echo ""
 echo "Finished."
-echo "Backup: $DESTINATION"
-echo "Archive: $ARCHIVE"
+echo "New Backup Created: $DESTINATION"
+echo "Archived Previous Backup: $ARCHIVE"
 echo ""
