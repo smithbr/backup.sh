@@ -1,7 +1,5 @@
 #!/bin/bash
 #
-## Description: Backup folders
-#
 ## Author: Brandon Smith
 
 
