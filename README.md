@@ -15,7 +15,7 @@ Add files and folders to backup to `sources.txt`
 
 Add files and folders to exclude to `exclude.txt`
 
-## Run
+## Backup
 
 ### Optional: add an alias to `~/.bashrc`
 		$ echo '# backup.sh' >> ~/.bashrc
