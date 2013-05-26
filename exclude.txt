@@ -6,3 +6,4 @@ Dropbox
 .java
 .local/share/Trash
 .thumbnails
+.directory
