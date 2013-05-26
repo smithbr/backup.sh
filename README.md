@@ -1,6 +1,6 @@
 # backup.sh
 
-My backup script for saving a snapshot of my laptop's `/home` and `/opt` directories to Dropbox.
+A backup script I made for saving a snapshot of my laptop's `/home` and `/opt` directories to Dropbox.
 
 ## Setup
 
@@ -18,29 +18,29 @@ Add files and folders to exclude to `exclude.txt`
 
 ## Backup
 
-Optional: add an alias to `~/.bashrc`:
+Optional: add an alias to `~/.bashrc`
 
 		$ echo '# backup.sh' >> ~/.bashrc
 		$ echo "alias dobackup='cd $HOME/Dropbox/Backups/mylaptop && sh backup.sh'" >> ~/.bashrc
 
-Start backup:
+Start backup
 
 		$ source ~/.bashrc
 		$ dobackup
 
 ## Restore
 
-Restore last backup:
+Restore last backup
 
 		$ cd ~/Dropbox/Backups/mylaptop
 		$ sh restore.sh backup.tar.gz myrestore1
 		
-Or archived backup:
+Or archived backup
 
 		$ cd ~/Dropbox/Backups/mylaptop
 		$ sh restore.sh archive/backup-000000000000.tar.gz myrestore1
 
-Explore the restored backup:
+Explore the restored backup
 
 		$ cd restored/myrestore1
 		$ ls
