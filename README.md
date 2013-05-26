@@ -7,6 +7,7 @@ My backup script for saving a snapshot of my laptop's `/home` and `/opt` directo
 		$ mkdir ~/Dropbox/Backups/mylaptop
 		$ cp backup.sh/* ~/Dropbox/Backups/mylaptop
 		$ rm -rf backup.sh
+		$ cd ~/Dropbox/Backups/mylaptop
 
 ## Choose what to back up
 
@@ -16,15 +17,15 @@ Add files and folders to exclude to `exclude.txt`
 
 ## Run
 
-### Add an alias to `~/.bashrc`
-		# Backup my laptop
-		alias dobackup='cd $HOME/Dropbox/Backups/mylaptop && sh backup.sh'
+### Optional: add an alias to `~/.bashrc`
+		$ echo '# backup.sh' >> ~/.bashrc
+		$ echo "alias dobackup='cd $HOME/Dropbox/Backups/mylaptop && sh backup.sh'" >> ~/.bashrc
 
 ### Start backup
 		$ source ~/.bashrc
 		$ dobackup
 
-### Restore a backup
+## Restore
 		$ cd ~/Dropbox/Backups/mylaptop		
 		$ sh restore.sh backup.tar.gz myrestore1
 		
