@@ -10,9 +10,9 @@ My backup script.
 
 ## Choose what to back up
 
-### Add desired backup files and folders to `sources.txt`
+Add desired backup files and folders to `sources.txt`
 
-### Add excluded files and folders to `exclude.txt`
+Add excluded files and folders to `exclude.txt`
 
 ## Run
 
