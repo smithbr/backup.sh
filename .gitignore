@@ -1,5 +1,4 @@
 *.tar.gz
 .directory
-log.txt
 archive/
 restored/
