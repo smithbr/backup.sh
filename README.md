@@ -26,7 +26,7 @@ Add files and folders to exclude to `exclude.txt`
 		$ dobackup
 
 ## Restore
-		$ cd ~/Dropbox/Backups/mylaptop		
+		$ cd ~/Dropbox/Backups/mylaptop
 		$ sh restore.sh backup.tar.gz myrestore1
 		
 Or restore an archived backup:
