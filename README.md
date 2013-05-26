@@ -2,14 +2,14 @@
 
 My backup script for saving a snapshot of my laptop's `/home` and `/opt` directories to Dropbox.
 
-## Setup a new backup
+## Setup
 		$ git clone git@github.com:smithbr/backup.sh.git
 		$ mkdir ~/Dropbox/Backups/mylaptop
 		$ cp backup.sh/* ~/Dropbox/Backups/mylaptop
 		$ rm -rf backup.sh
 		$ cd ~/Dropbox/Backups/mylaptop
 
-## Choose what to back up
+## Include/Exclude
 
 Add files and folders to backup to `sources.txt`
 
@@ -17,11 +17,11 @@ Add files and folders to exclude to `exclude.txt`
 
 ## Backup
 
-### Optional: add an alias to `~/.bashrc`
+Optional: add an alias to `~/.bashrc`
 		$ echo '# backup.sh' >> ~/.bashrc
 		$ echo "alias dobackup='cd $HOME/Dropbox/Backups/mylaptop && sh backup.sh'" >> ~/.bashrc
 
-### Start backup
+Start backup
 		$ source ~/.bashrc
 		$ dobackup
 
