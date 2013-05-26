@@ -18,27 +18,29 @@ Add files and folders to exclude to `exclude.txt`
 
 ## Backup
 
-Optional: add an alias to `~/.bashrc`
+Optional: add an alias to `~/.bashrc`:
 
 		$ echo '# backup.sh' >> ~/.bashrc
 		$ echo "alias dobackup='cd $HOME/Dropbox/Backups/mylaptop && sh backup.sh'" >> ~/.bashrc
 
-Start backup
+Start backup:
 
 		$ source ~/.bashrc
 		$ dobackup
 
 ## Restore
 
+Restore last backup:
+
 		$ cd ~/Dropbox/Backups/mylaptop
 		$ sh restore.sh backup.tar.gz myrestore1
 		
-Or restore an archived backup:
+Or archived backup:
 
 		$ cd ~/Dropbox/Backups/mylaptop
 		$ sh restore.sh archive/backup-000000000000.tar.gz myrestore1
 
-Explore the backup:
+Explore the restored backup:
 
 		$ cd restored/myrestore1
 		$ ls
