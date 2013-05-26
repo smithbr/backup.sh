@@ -1,2 +1,3 @@
-/home
-/opt
+about.txt
+log.txt
+/home/brandon/Downloads
