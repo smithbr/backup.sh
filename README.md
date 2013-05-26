@@ -23,3 +23,18 @@ Add files and folders to exclude to `exclude.txt`
 ### Start backup
 		$ source ~/.bashrc
 		$ dobackup
+
+### Restore a backup
+		$ cd ~/Dropbox/Backups/mylaptop		
+		$ sh restore.sh backup.tar.gz myrestore1
+		
+Or restore an archived backup:
+
+		$ cd ~/Dropbox/Backups/mylaptop
+		$ sh restore.sh archive/backup-000000000000.tar.gz myrestore1
+
+Explore the backup:
+
+		$ cd restored/myrestore1
+		$ ls
+		$ about.txt  home  opt
