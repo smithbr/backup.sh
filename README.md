@@ -1,6 +1,6 @@
 # backup.sh
 
-My backup script for storing a snapshot of my `/home` and `/opt` directories on my laptop.
+My backup script for saving a snapshot of my laptop's `/home` and `/opt` directories to Dropbox.
 
 ## Setup a new backup
 		$ git clone git@github.com:smithbr/backup.sh.git
