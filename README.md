@@ -1,6 +1,6 @@
-# backup.sh
+# mint-backup
 
-A backup script I made for saving a snapshot of my laptop's `/home` and `/opt` directories to Dropbox.
+A backup script I made for saving quick and dirty snapshots of my laptop's `/home` and `/opt` directories to Dropbox.
 
 ## Setup
 
